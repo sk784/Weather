@@ -3,19 +3,28 @@ package com.example.weather;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+public class SecondActivity extends AppCompatActivity {
 
-public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_second);
+        String text = getIntent().getExtras().getString(StartSecondActivity.TEXT); // получить данные из Intent
+        TextView textView = findViewById(R.id.textView);
+        textView.setText(text); // Сохранить их в TextView
+    }
 
-        Button button = findViewById(R.id.button);     // Кнопка
-        button.setOnClickListener(new StartSecondActivity(this));   // Обработка нажатий
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.buttonBack:
+                finish();
+                break;
+            default:
+                break;
+        }
     }
 
     public void onCheckboxClicked(View view) {
@@ -41,4 +50,6 @@ public class MainActivity extends AppCompatActivity {
         TextView selection = findViewById(R.id.selection);
         selection.setText(selectedItems);
     }
+
 }
+
