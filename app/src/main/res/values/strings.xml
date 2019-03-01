@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">Weather</string>
-    <string name="text1">Прогноз погоды</string>
-    <string name="text2">Температура</string>
-    <string name="text3">Осадки</string>
-    <string name="text4">Ветер</string>
-    <string name="text5">Влажность</string>
-    <string name="text6">Давление</string>
-    <string name="text7">Напишите название населенного пункта:</string>
-    <string name="button">Поиск</string>
-    <string name="buttonBack">Назад</string>
+    <string name="text1">Weather Forecast</string>
+    <string name="text2">Temperature</string>
+    <string name="text3">Precipitation</string>
+    <string name="text4">Wind</string>
+    <string name="text5">Humidity</string>
+    <string name="text6">Atmospheric Pressure</string>
+    <string name="text7">Write the name of the settlement:</string>
+    <string name="button">Search</string>
+    <string name="buttonBack">Back</string>
 </resources>

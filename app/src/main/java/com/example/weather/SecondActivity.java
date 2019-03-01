@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -12,10 +13,16 @@ public class SecondActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-        String text = getIntent().getExtras().getString(StartSecondActivity.TEXT); // получить данные из Intent
-        TextView textView = findViewById(R.id.textView);
-        textView.setText(text); // Сохранить их в TextView
+        try {
+            String text = getIntent().getExtras().getString(StartSecondActivity.TEXT); // получить данные из Intent
+            TextView textView = findViewById(R.id.textView);
+            textView.setText(text); // Сохранить их в TextView
+        } catch (NullPointerException e) {
+            Toast.makeText(this, "Нет данных!", Toast.LENGTH_LONG).show();
+        }
     }
+
+
 
     public void onClick(View v) {
         switch (v.getId()) {
