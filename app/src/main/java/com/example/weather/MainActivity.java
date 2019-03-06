@@ -1,44 +1,47 @@
 package com.example.weather;
 
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.TextView;
+import android.widget.EditText;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MainNavigator{
+
+    private SearchFragment searchFragment;
+    private ResultFragment resultFragment;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button button = findViewById(R.id.button);     // Кнопка
-        button.setOnClickListener(new StartSecondActivity(this));   // Обработка нажатий
+        searchFragment = new SearchFragment();
+        resultFragment = new ResultFragment();
+
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        // добавить фрагмент
+        fragmentTransaction.add(R.id.search, searchFragment);
+        // закрыть транзакцию
+        fragmentTransaction.commit();
     }
 
-    public void onCheckboxClicked(View view) {
-        // Получаем флажки
-        CheckBox temperature = findViewById(R.id.temperature);
-        CheckBox precipitation = findViewById(R.id.precipitation);
-        CheckBox wind = findViewById(R.id.wind);
-        CheckBox humidity = findViewById(R.id.humidity);
-        CheckBox air_pressure = findViewById(R.id.air_pressure);
+    @Override
+    public void startSecondFragment(EditText city, StringBuilder result) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.remove(searchFragment);
 
-        String selectedItems = "";
-        if(temperature.isChecked())
-            selectedItems +=temperature.getText() + "\n";
-        if(precipitation.isChecked())
-            selectedItems +=precipitation.getText() + "\n";
-        if(wind.isChecked())
-            selectedItems +=wind.getText() + "\n";
-        if(humidity.isChecked())
-            selectedItems +=humidity.getText() + "\n";
-        if(air_pressure.isChecked())
-            selectedItems +=air_pressure.getText();
+        // добавить фрагмент
+        fragmentTransaction.add(R.id.search, resultFragment);
+        fragmentTransaction.addToBackStack("");
 
-        TextView selection = findViewById(R.id.selection);
-        selection.setText(selectedItems);
+        // закрыть транзакцию
+        fragmentTransaction.commit();
+
+        resultFragment.setCity(city);
+        resultFragment.setResult(result);
     }
+
 }
+
