@@ -9,33 +9,72 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.CompoundButton;
 
 
 public class SearchFragment extends Fragment {
 
-    final StringBuilder result = new StringBuilder();
+    String result = " ";
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View fragmentView = inflater.inflate(R.layout.fragment_main, container, false);
 
-        CheckBox temperature = fragmentView.findViewById(R.id.temperature);
-        CheckBox precipitation = fragmentView.findViewById(R.id.precipitation);
-        CheckBox wind = fragmentView.findViewById(R.id.wind);
-        CheckBox humidity = fragmentView.findViewById(R.id.humidity);
-        CheckBox air_pressure = fragmentView.findViewById(R.id.air_pressure);
+        final CheckBox temperature = fragmentView.findViewById(R.id.temperature);
+        temperature.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
-        if (temperature.isChecked())
-            result.append(temperature.getText() + "\n");
-        if (precipitation.isChecked())
-            result.append(precipitation.getText() + "\n");
-        if (wind.isChecked())
-            result.append(wind.getText() + "\n");
-        if (humidity.isChecked())
-            result.append(humidity.getText() + "\n");
-        if (air_pressure.isChecked())
-            result.append(air_pressure.getText());
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
+                if (isChecked) {
+                    result = (temperature.getText() + "\n");
+                }
+            }
+        });
+
+        final CheckBox precipitation = fragmentView.findViewById(R.id.precipitation);
+        precipitation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
+                if (isChecked) {
+                    result = result + (precipitation.getText() + "\n");
+                }
+            }
+        });
+
+        final CheckBox wind = fragmentView.findViewById(R.id.wind);
+        wind.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
+                if (isChecked) {
+                    result = result + (wind.getText() + "\n");
+                }
+            }
+        });
+
+        final CheckBox humidity = fragmentView.findViewById(R.id.humidity);
+        humidity.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
+                if (isChecked) {
+                    result = result + (humidity.getText() + "\n");
+                }
+            }
+        });
+
+        final CheckBox air_pressure = fragmentView.findViewById(R.id.air_pressure);
+        air_pressure.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
+                if (isChecked) {
+                    result = result + (air_pressure.getText() + "\n");
+                }
+            }
+        });
 
         final EditText city = fragmentView.findViewById(R.id.editText);
         Button button = fragmentView.findViewById(R.id.button);     // Кнопка

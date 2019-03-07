@@ -36,7 +36,6 @@
         android:text="@string/buttonBack"
         android:textColor="@color/colorPrimary"
         android:textSize="15sp"
-        android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintLeft_toLeftOf="parent"

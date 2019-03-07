@@ -6,12 +6,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 public class ResultFragment extends Fragment {
 
-    private StringBuilder result = new StringBuilder();
+    private String result;
     private EditText city;
 
     @Override
@@ -25,6 +26,14 @@ public class ResultFragment extends Fragment {
         TextView selection = fragmentView.findViewById(R.id.selection);
         selection.setText(result);
 
+        Button buttonBack = fragmentView.findViewById(R.id.buttonBack);
+        buttonBack.setOnClickListener(new View.OnClickListener() {  // Обработка нажатий
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().popBackStack();
+                result = " ";
+            }
+        });
         return fragmentView;
     }
 
@@ -32,17 +41,7 @@ public class ResultFragment extends Fragment {
         this.city = city;
     }
 
-    public void setResult(StringBuilder result){
+    public void setResult(String result){
         this.result = result;
-    }
-
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.buttonBack:
-                onPause();
-                break;
-            default:
-                break;
-        }
     }
 }

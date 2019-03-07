@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements MainNavigator{
     }
 
     @Override
-    public void startSecondFragment(EditText city, StringBuilder result) {
+    public void startSecondFragment(EditText city, String result) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.remove(searchFragment);
 
