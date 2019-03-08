@@ -3,6 +3,7 @@ package com.example.weather;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +15,10 @@ import android.widget.CompoundButton;
 
 public class SearchFragment extends Fragment {
 
-    String result = " ";
-    CheckBox temperature, precipitation, wind, humidity, air_pressure;
-    EditText city;
+    private StringBuilder result = new StringBuilder();
+    private CheckBox temperature, precipitation, wind, humidity, air_pressure;
+    private EditText city;
+    private static final String TAG = "myLogs";
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -29,7 +31,8 @@ public class SearchFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
                 if (isChecked) {
-                    result = (temperature.getText() + "\n");
+                    AddData(result, temperature);
+                    Log.d(TAG, "onCheckedChanged:temperature "+result);
                 }
             }
         });
@@ -40,7 +43,8 @@ public class SearchFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
                 if (isChecked) {
-                    result = result + (precipitation.getText() + "\n");
+                    AddData(result, precipitation);
+                    Log.d(TAG, "onCheckedChanged:precipitation "+result);
                 }
             }
         });
@@ -51,7 +55,8 @@ public class SearchFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
                 if (isChecked) {
-                    result = result + (wind.getText() + "\n");
+                    AddData(result, wind);
+                    Log.d(TAG, "onCheckedChanged:wind"+result);
                 }
             }
         });
@@ -62,7 +67,8 @@ public class SearchFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
                 if (isChecked) {
-                    result = result + (humidity.getText() + "\n");
+                    AddData(result, humidity);
+                    Log.d(TAG, "onCheckedChanged:humidity "+result);
                 }
             }
         });
@@ -73,7 +79,8 @@ public class SearchFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
                 if (isChecked) {
-                    result = result + (air_pressure.getText() + "\n");
+                    AddData(result, air_pressure);
+                    Log.d(TAG, "onCheckedChanged:air_pressure "+result);
                 }
             }
         });
@@ -88,6 +95,15 @@ public class SearchFragment extends Fragment {
             }
         });
         return fragmentView;
+    }
+
+    public void AddData(StringBuilder result, CheckBox setting){
+        result.append(setting.getText() +"\n" );
+    }
+
+    public void onResume() {
+        super.onResume();
+        result.setLength(0);
     }
 }
 

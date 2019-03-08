@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class ResultFragment extends Fragment {
 
-    private String result;
+    private StringBuilder result;
     private EditText city;
 
     @Override
@@ -31,7 +31,6 @@ public class ResultFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 getFragmentManager().popBackStack();
-                result = " ";
             }
         });
         return fragmentView;
@@ -41,7 +40,7 @@ public class ResultFragment extends Fragment {
         this.city = city;
     }
 
-    public void setResult(String result){
+    public void setResult(StringBuilder result){
         this.result = result;
     }
 }
