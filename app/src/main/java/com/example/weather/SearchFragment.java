@@ -15,13 +15,15 @@ import android.widget.CompoundButton;
 public class SearchFragment extends Fragment {
 
     String result = " ";
+    CheckBox temperature, precipitation, wind, humidity, air_pressure;
+    EditText city;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View fragmentView = inflater.inflate(R.layout.fragment_main, container, false);
 
-        final CheckBox temperature = fragmentView.findViewById(R.id.temperature);
+        temperature = fragmentView.findViewById(R.id.temperature);
         temperature.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             @Override
@@ -32,7 +34,7 @@ public class SearchFragment extends Fragment {
             }
         });
 
-        final CheckBox precipitation = fragmentView.findViewById(R.id.precipitation);
+        precipitation = fragmentView.findViewById(R.id.precipitation);
         precipitation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             @Override
@@ -43,7 +45,7 @@ public class SearchFragment extends Fragment {
             }
         });
 
-        final CheckBox wind = fragmentView.findViewById(R.id.wind);
+        wind = fragmentView.findViewById(R.id.wind);
         wind.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             @Override
@@ -54,7 +56,7 @@ public class SearchFragment extends Fragment {
             }
         });
 
-        final CheckBox humidity = fragmentView.findViewById(R.id.humidity);
+        humidity = fragmentView.findViewById(R.id.humidity);
         humidity.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             @Override
@@ -65,7 +67,7 @@ public class SearchFragment extends Fragment {
             }
         });
 
-        final CheckBox air_pressure = fragmentView.findViewById(R.id.air_pressure);
+        air_pressure = fragmentView.findViewById(R.id.air_pressure);
         air_pressure.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             @Override
@@ -76,7 +78,7 @@ public class SearchFragment extends Fragment {
             }
         });
 
-        final EditText city = fragmentView.findViewById(R.id.editText);
+        city = fragmentView.findViewById(R.id.editText);
         Button button = fragmentView.findViewById(R.id.button);     // Кнопка
         button.setOnClickListener(new View.OnClickListener() {  // Обработка нажатий
             @Override
