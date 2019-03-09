@@ -30,7 +30,8 @@ public class ResultFragment extends Fragment {
         buttonBack.setOnClickListener(new View.OnClickListener() {  // Обработка нажатий
             @Override
             public void onClick(View v) {
-                getFragmentManager().popBackStack();
+//                getFragmentManager().popBackStack();
+                SampleApplication.INSTANCE.getRouter().backTo("1");
             }
         });
         return fragmentView;
