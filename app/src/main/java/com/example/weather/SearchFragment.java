@@ -31,7 +31,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
                 if (isChecked) {
-                    addData(result, temperature);
+                    AddData(result, temperature);
                     Log.d(TAG, "onCheckedChanged:temperature "+result);
                 }
             }
@@ -43,7 +43,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
                 if (isChecked) {
-                    addData(result, precipitation);
+                    AddData(result, precipitation);
                     Log.d(TAG, "onCheckedChanged:precipitation "+result);
                 }
             }
@@ -55,7 +55,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
                 if (isChecked) {
-                    addData(result, wind);
+                    AddData(result, wind);
                     Log.d(TAG, "onCheckedChanged:wind"+result);
                 }
             }
@@ -67,7 +67,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
                 if (isChecked) {
-                    addData(result, humidity);
+                    AddData(result, humidity);
                     Log.d(TAG, "onCheckedChanged:humidity "+result);
                 }
             }
@@ -79,7 +79,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
                 if (isChecked) {
-                    addData(result, air_pressure);
+                    AddData(result, air_pressure);
                     Log.d(TAG, "onCheckedChanged:air_pressure "+result);
                 }
             }
@@ -90,15 +90,14 @@ public class SearchFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {  // Обработка нажатий
             @Override
             public void onClick(View v) {
-                SampleApplication.INSTANCE.getRouter().backTo("2");
-//                MainNavigator mainNavigator = (MainNavigator) getActivity();
-//                mainNavigator.startSecondFragment(city, result);
+                MainNavigator mainNavigator = (MainNavigator) getActivity();
+                mainNavigator.startSecondFragment(city, result);
             }
         });
         return fragmentView;
     }
 
-    public void addData(StringBuilder result, CheckBox setting){
+    public void AddData(StringBuilder result, CheckBox setting){
         result.append(setting.getText() +"\n" );
     }
 

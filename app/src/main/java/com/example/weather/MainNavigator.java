@@ -1,7 +1,7 @@
-//package com.example.weather;
-//
-//import android.widget.EditText;
-//
-//public interface MainNavigator {
-//    void startSecondFragment(EditText city, StringBuilder result);
-//}
+package com.example.weather;
+
+import android.widget.EditText;
+
+public interface MainNavigator {
+    void startSecondFragment(EditText city, StringBuilder result);
+}
