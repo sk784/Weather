@@ -9,4 +9,6 @@
     <string name="text7">Write the name of the settlement:</string>
     <string name="button">Search</string>
     <string name="buttonBack">Back</string>
+    <string name="item">Item</string>
+    <string name="buttonHistory">Weather History</string>
 </resources>

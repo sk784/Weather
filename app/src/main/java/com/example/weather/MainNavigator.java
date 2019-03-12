@@ -3,5 +3,6 @@ package com.example.weather;
 import android.widget.EditText;
 
 public interface MainNavigator {
-    void startSecondFragment(EditText city, StringBuilder result);
+    void startResultFragment(EditText city, StringBuilder result);
+    void startHistoryFragment();
 }

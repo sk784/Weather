@@ -91,7 +91,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 MainNavigator mainNavigator = (MainNavigator) getActivity();
-                mainNavigator.startSecondFragment(city, result);
+                mainNavigator.startResultFragment(city, result);
             }
         });
         return fragmentView;

@@ -1,0 +1,11 @@
+<resources>
+    <string-array name="temperature_data">
+        <item>05.03.19 - -5°C</item>
+        <item>06.03.19 - -2°C</item>
+        <item>07.03.19 - 0°C</item>
+        <item>08.03.19 - 1°C</item>
+        <item>09.03.19 - -3°C</item>
+        <item>10.03.19 - 4°C</item>
+        <item>11.03.19 - 7°C</item>
+    </string-array>
+</resources>

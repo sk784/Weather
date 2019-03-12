@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+
 public class ResultFragment extends Fragment {
 
     private StringBuilder result;
@@ -18,7 +19,7 @@ public class ResultFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View fragmentView = inflater.inflate(R.layout.fragment_second, container, false);
+        View fragmentView = inflater.inflate(R.layout.fragment_result, container, false);
 
         TextView requiredCity = fragmentView.findViewById(R.id.textView);
         requiredCity.setText(city.getText());
@@ -33,6 +34,17 @@ public class ResultFragment extends Fragment {
                 getFragmentManager().popBackStack();
             }
         });
+
+        Button buttonHistory = fragmentView.findViewById(R.id.history);
+        buttonHistory.setOnClickListener(new View.OnClickListener() {  // Обработка нажатий
+            @Override
+            public void onClick(View v) {
+                MainNavigator mainNavigator = (MainNavigator) getActivity();
+                mainNavigator.startHistoryFragment();
+            }
+        });
+
+
         return fragmentView;
     }
 

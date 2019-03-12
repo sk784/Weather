@@ -8,5 +8,7 @@
     <string name="text6">Давление</string>
     <string name="text7">Напишите название населенного пункта:</string>
     <string name="button">Поиск</string>
+    <string name="item">Пункт</string>
     <string name="buttonBack">Назад</string>
+    <string name="buttonHistory">История погоды</string>
 </resources>
