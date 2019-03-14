@@ -18,7 +18,6 @@ public class SearchFragment extends Fragment {
     private CheckBox temperature, precipitation, wind, humidity, air_pressure;
     private EditText city;
 
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
