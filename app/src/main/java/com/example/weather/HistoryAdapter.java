@@ -13,15 +13,14 @@ import java.util.List;
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHolder> {
 
     private final List<String> dataSource;                         // Наш источник данных
-    private OnItemClickListener itemClickListener;  // Слушатель, будет устанавливаться извне
 
     // этот класс хранит связь между данными и элементами View
     // Сложные данные могут потребовать несколько View на один элемент списка
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
 
         private final TextView data;
 
-        public ViewHolder(View view) {
+        ViewHolder(View view) {
             super(view);
             data = view.findViewById(R.id.data);
         }
@@ -34,12 +33,13 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
 
     // сеттер слушателя нажатий
     public void SetOnItemClickListener(OnItemClickListener itemClickListener) {
-        this.itemClickListener = itemClickListener;
+        // Слушатель, будет устанавливаться извне
+        OnItemClickListener itemClickListener1 = itemClickListener;
     }
 
     // Передаем в конструктор источник данных
     // В нашем случае это массив, но может быть и запросом к БД
-    public HistoryAdapter(List<String> dataSource) {
+    HistoryAdapter(List<String> dataSource) {
         this.dataSource = dataSource;
     }
 
@@ -60,9 +60,8 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // Получить элемент из источника данных (БД, интернет…)
          String item = dataSource.get(position);
-
         // Вывести на экран, используя ViewHolder
-        holder.data.setText(item.toString());
+        holder.data.setText(item);
     }
 
     // Вернуть размер данных

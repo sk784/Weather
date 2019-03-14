@@ -3,7 +3,6 @@ package com.example.weather;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +17,7 @@ public class SearchFragment extends Fragment {
     private StringBuilder result = new StringBuilder();
     private CheckBox temperature, precipitation, wind, humidity, air_pressure;
     private EditText city;
-    private static final String TAG = "myLogs";
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -31,8 +30,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
                 if (isChecked) {
-                    AddData(result, temperature);
-                    Log.d(TAG, "onCheckedChanged:temperature "+result);
+                    addData(result, temperature);
                 }
             }
         });
@@ -43,8 +41,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
                 if (isChecked) {
-                    AddData(result, precipitation);
-                    Log.d(TAG, "onCheckedChanged:precipitation "+result);
+                    addData(result, precipitation);
                 }
             }
         });
@@ -55,8 +52,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
                 if (isChecked) {
-                    AddData(result, wind);
-                    Log.d(TAG, "onCheckedChanged:wind"+result);
+                    addData(result, wind);
                 }
             }
         });
@@ -67,8 +63,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
                 if (isChecked) {
-                    AddData(result, humidity);
-                    Log.d(TAG, "onCheckedChanged:humidity "+result);
+                    addData(result, humidity);
                 }
             }
         });
@@ -79,8 +74,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
                 if (isChecked) {
-                    AddData(result, air_pressure);
-                    Log.d(TAG, "onCheckedChanged:air_pressure "+result);
+                    addData(result, air_pressure);
                 }
             }
         });
@@ -91,14 +85,15 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 MainNavigator mainNavigator = (MainNavigator) getActivity();
+                assert mainNavigator != null;
                 mainNavigator.startResultFragment(city, result);
             }
         });
         return fragmentView;
     }
 
-    public void AddData(StringBuilder result, CheckBox setting){
-        result.append(setting.getText() +"\n" );
+    public void addData(StringBuilder result, CheckBox setting){
+        result.append(setting.getText()).append("\n");
     }
 
     public void onResume() {

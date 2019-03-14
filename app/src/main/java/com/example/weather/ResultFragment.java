@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-
 public class ResultFragment extends Fragment {
 
     private StringBuilder result;
@@ -31,6 +30,7 @@ public class ResultFragment extends Fragment {
         buttonBack.setOnClickListener(new View.OnClickListener() {  // Обработка нажатий
             @Override
             public void onClick(View v) {
+                assert getFragmentManager() != null;
                 getFragmentManager().popBackStack();
             }
         });
@@ -40,11 +40,10 @@ public class ResultFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 MainNavigator mainNavigator = (MainNavigator) getActivity();
+                assert mainNavigator != null;
                 mainNavigator.startHistoryFragment();
             }
         });
-
-
         return fragmentView;
     }
 
