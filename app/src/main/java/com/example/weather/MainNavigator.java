@@ -1,8 +1,8 @@
 package com.example.weather;
 
-import android.widget.EditText;
 
 public interface MainNavigator {
-    void startResultFragment(EditText city, StringBuilder result);
-    void startHistoryFragment();
+    void startResultFragment(String city);
+    void startResultFragmentFromList(String city,String temperature, String wind, String humidity);
 }
+

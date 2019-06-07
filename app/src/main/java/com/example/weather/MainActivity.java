@@ -3,56 +3,48 @@ package com.example.weather;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.EditText;
+
 
 public class MainActivity extends AppCompatActivity implements MainNavigator {
 
-    private SearchFragment searchFragment;
-    private ResultFragment resultFragment;
+    private CityPreference cityPreference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        cityPreference = new CityPreference(this);
+        if (savedInstanceState==null)
+            initFragment();
+    }
 
-        searchFragment = new SearchFragment();
-
+    private void initFragment() {
+        SearchFragment searchFragment = new SearchFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        // добавить фрагмент
         fragmentTransaction.add(R.id.main, searchFragment);
-        // закрыть транзакцию
         fragmentTransaction.commit();
     }
 
     @Override
-    public void startResultFragment(EditText city, StringBuilder result) {
-        resultFragment = new ResultFragment();
+    public void startResultFragment(String city) {
+        ResultFragment resultFragment = new ResultFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.remove(searchFragment);
-
-        // добавить фрагмент
-        fragmentTransaction.add(R.id.main, resultFragment);
+        fragmentTransaction.replace(R.id.main, resultFragment);
         fragmentTransaction.addToBackStack("");
-
-        // закрыть транзакцию
         fragmentTransaction.commit();
-
-        resultFragment.setCity(city);
-        resultFragment.setResult(result);
+        resultFragment.changeCity(city);
+        cityPreference.setCity(city);
     }
 
     @Override
-    public void startHistoryFragment() {
-        HistoryFragment historyFragment = new HistoryFragment();
+    public void startResultFragmentFromList(String city, String temperature, String wind, String humidity) {
+        ResultFragment resultFragment = new ResultFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.remove(resultFragment);
-
-        // добавить фрагмент
-        fragmentTransaction.add(R.id.main, historyFragment);
+        fragmentTransaction.replace(R.id.main, resultFragment);
         fragmentTransaction.addToBackStack("");
-
-        // закрыть транзакцию
         fragmentTransaction.commit();
+        resultFragment.changeCity(city);
+        cityPreference.setCity(city);
     }
 }
 

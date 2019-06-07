@@ -1,14 +1,14 @@
 <resources>
     <string name="app_name">Погода</string>
     <string name="text1">Прогноз погоды</string>
-    <string name="text2">Температура</string>
-    <string name="text3">Осадки</string>
-    <string name="text4">Ветер</string>
-    <string name="text5">Влажность</string>
-    <string name="text6">Давление</string>
-    <string name="text7">Напишите название населенного пункта:</string>
+    <string name="text2">Температура = </string>
+    <string name="text4">Ветер = </string>
+    <string name="text5">Влажность = </string>
+    <string name="text7">Напишите название населенного пункта или выберите из списка:</string>
     <string name="button">Поиск</string>
     <string name="item">Пункт</string>
     <string name="buttonBack">Назад</string>
     <string name="buttonHistory">История погоды</string>
+    <string name="sensor">Текущая температура</string>
+    <string name="place_not_found">Место не найдено!</string>
 </resources>

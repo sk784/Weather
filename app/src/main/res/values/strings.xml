@@ -1,14 +1,14 @@
 <resources>
     <string name="app_name">Weather</string>
     <string name="text1">Weather Forecast</string>
-    <string name="text2">Temperature</string>
-    <string name="text3">Precipitation</string>
-    <string name="text4">Wind</string>
-    <string name="text5">Humidity</string>
-    <string name="text6">Atmospheric Pressure</string>
-    <string name="text7">Write the name of the settlement:</string>
+    <string name="text2">Temperature = </string>
+    <string name="text4">Wind = </string>
+    <string name="text5">Humidity = </string>
+    <string name="text7">Write the name of the settlement or select from the list below:</string>
     <string name="button">Search</string>
     <string name="buttonBack">Back</string>
     <string name="item">Item</string>
     <string name="buttonHistory">Weather History</string>
+    <string name="sensor">Current Temperature</string>
+    <string name="place_not_found">Place not found!</string>
 </resources>
