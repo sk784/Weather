@@ -37,13 +37,13 @@ public class MainActivity extends AppCompatActivity implements MainNavigator {
     }
 
     @Override
-    public void startResultFragmentFromList(String city, String temperature, String wind, String humidity) {
+    public void startResultFragmentFromList(String city, String lat, String lon) {
         ResultFragment resultFragment = new ResultFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.main, resultFragment);
         fragmentTransaction.addToBackStack("");
         fragmentTransaction.commit();
-        resultFragment.changeCity(city);
+        resultFragment.changeCityFromCoordinate(lat,lon);
         cityPreference.setCity(city);
     }
 }

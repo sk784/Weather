@@ -8,26 +8,48 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/text1"
-        android:textSize="25sp"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
-
-    <TextView
         android:id="@+id/cityName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
+        android:layout_marginTop="20dp"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonBack"
-        app:layout_constraintRight_toLeftOf="@+id/buttonBack" />
+        android:ems="7"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="50dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginEnd="50dp"/>
 
+    <TextView
+        android:id="@+id/lastUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@+id/cityName"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="50dp"/>
+
+    <TextView
+        android:id="@+id/cityTemperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+        app:layout_constraintTop_toBottomOf="@+id/lastUpdate"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:id="@+id/weatherIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:textSize="60sp"
+        app:layout_constraintTop_toBottomOf="@+id/cityTemperature"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="10dp"/>
 
     <Button
         android:id="@+id/buttonBack"
@@ -36,42 +58,10 @@
         android:text="@string/buttonBack"
         android:textColor="@color/colorPrimary"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2" />
-
-    <TextView
-        android:id="@+id/lastUpdate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:textSize="12sp"
-        app:layout_constraintTop_toBottomOf="@+id/cityName"
-        app:layout_constraintRight_toLeftOf="@+id/buttonBack"
-        android:layout_marginTop="20dp"/>
-
-    <TextView
-        android:id="@+id/cityTemperature"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:textSize="50sp"
-        app:layout_constraintTop_toBottomOf="@+id/lastUpdate"
-        app:layout_constraintRight_toLeftOf="@+id/buttonBack"
-        android:layout_marginTop="30dp"/>
-
-    <TextView
-        android:id="@+id/weatherIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:textSize="80sp"
         app:layout_constraintTop_toBottomOf="@+id/cityTemperature"
-        app:layout_constraintRight_toLeftOf="@+id/buttonBack"
-        android:layout_marginTop="40dp"/>
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp" />
 
     <TextView
         android:id="@+id/details"
@@ -80,7 +70,8 @@
         android:layout_marginEnd="40dp"
         android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@+id/weatherIcon"
-        app:layout_constraintRight_toLeftOf="@+id/buttonBack"
-        android:layout_marginTop="20dp"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="10dp"/>
 
 </android.support.constraint.ConstraintLayout>

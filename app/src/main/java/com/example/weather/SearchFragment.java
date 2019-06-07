@@ -47,7 +47,7 @@ public class SearchFragment extends Fragment {
             City item = dataSource.get(position);
             MainNavigator mainNavigator = (MainNavigator) getActivity();
             assert mainNavigator != null;
-            mainNavigator.startResultFragmentFromList(item.getName(),item.getTemperature(),item.getWind(),item.getHumidity());
+            mainNavigator.startResultFragmentFromList(item.getName(),item.getLat(),item.getLon());
         });
     }
 }

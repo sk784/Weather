@@ -5,23 +5,22 @@ import android.content.res.Resources;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataSourceBuilder {
+class DataSourceBuilder {
     private final List<City> dataSource;
     private final Resources resources;
 
-    public DataSourceBuilder(Resources resources) {
+    DataSourceBuilder(Resources resources) {
         dataSource = new ArrayList<>(7);
         this.resources = resources;
     }
 
-    public List<City> build() {
+    List<City> build() {
         String[] cities = resources.getStringArray(R.array.cities);
-        String[] temperatures = resources.getStringArray(R.array.temperatures);
-        String[] wind = resources.getStringArray(R.array.wind);
-        String[] humidity = resources.getStringArray(R.array.humidity);
+        String[] lat = resources.getStringArray(R.array.lat);
+        String[] lon = resources.getStringArray(R.array.lon);
 
         for (int i = 0; i < cities.length; i++)
-            dataSource.add(new City(cities[i],temperatures[i],wind[i],humidity[i]));
+            dataSource.add(new City(cities[i],lat[i],lon[i]));
         return dataSource;
     }
 }

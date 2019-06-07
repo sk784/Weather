@@ -8,31 +8,22 @@
         <item>Краснодар</item>
         <item>Сочи</item>
     </string-array>
-    <string-array name="temperatures">
-        <item>-5°C</item>
-        <item>-2°C</item>
-        <item>0°C</item>
-        <item>1°C</item>
-        <item>-3°C</item>
-        <item>4°C</item>
-        <item>7°C</item>
+    <string-array name="lat">
+        <item>55.75</item>
+        <item>59.56</item>
+        <item>55.03</item>
+        <item>56.33</item>
+        <item>47.22</item>
+        <item>45.04</item>
+        <item>43.6</item>
     </string-array>
-    <string-array name="wind">
-        <item>5 м/с</item>
-        <item>3 м/с</item>
-        <item>8 м/с</item>
-        <item>15 м/с</item>
-        <item>9 м/с</item>
-        <item>12 м/с</item>
-        <item>2 м/с</item>
-    </string-array>
-    <string-array name="humidity">
-        <item>65 %</item>
-        <item>35 %</item>
-        <item>25 %</item>
-        <item>95 %</item>
-        <item>15 %</item>
-        <item>5 %</item>
-        <item>45 %</item>
+    <string-array name="lon">
+        <item>37.62</item>
+        <item>30.19</item>
+        <item>82.92</item>
+        <item>44</item>
+        <item>39.72</item>
+        <item>38.98</item>
+        <item>39.73</item>
     </string-array>
 </resources>

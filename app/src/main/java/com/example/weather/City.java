@@ -3,33 +3,26 @@ package com.example.weather;
 public class City {
 
     private final String name;
-    private final String temperature;
-    private final String wind;
-    private final String humidity;
+    private final String lat;
+    private final String lon;
 
-    City(String name, String temperature, String wind, String humidity) {
+
+    City(String name, String lat, String lon) {
         this.name = name;
-        this.temperature = temperature;
-        this.wind = wind;
-        this.humidity = humidity;
+        this.lat = lat;
+        this.lon = lon;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getTemperature() {
-        return temperature;
+    public String getLat() {
+        return lat;
     }
 
-    public String getWind() {
-        return wind;
+    public String getLon() {
+        return lon;
     }
-
-    public String getHumidity() {
-        return humidity;
-    }
-
-
 }
 

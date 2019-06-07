@@ -22,12 +22,9 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.ViewHolder> {
             super(view);
 
             city = view.findViewById(R.id.city);
-            city.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (itemClickListener != null)
-                        itemClickListener.onItemClick(view, getAdapterPosition());
-                }
+            city.setOnClickListener(view1 -> {
+                if (itemClickListener != null)
+                    itemClickListener.onItemClick(view1, getAdapterPosition());
             });
         }
     }
